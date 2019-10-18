@@ -77,3 +77,35 @@ print(desc)
 
  desc = myArray.sorted(by: >)
 print(desc)
+
+
+//escaping
+
+
+func call(completion: @escaping (_: Bool) -> Void)
+{
+    sleep(3)
+    completion(false)
+}
+
+print("START")
+call
+{
+    (flag) in
+    print("inside block", flag)
+}
+print("END")
+
+
+func moreSum( sumFunc: @escaping (_: Int) -> Void)
+{
+    for x in 1...10
+    {
+     sumFunc(x)
+        sleep(2)
+    }
+}
+
+moreSum { (y) in
+    print(y)
+}
